@@ -17,7 +17,6 @@ export default function LayoutContent({ children }) {
       <div className="flex w-full">
         <AppSidebar />
         <main className="flex-1">
-          <SidebarTrigger />
           {children}
         </main>
       </div>

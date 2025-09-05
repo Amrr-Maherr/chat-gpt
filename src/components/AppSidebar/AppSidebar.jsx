@@ -1,4 +1,7 @@
+"use client";
+
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import Link from "next/link";
 
 import {
   Sidebar,
@@ -10,44 +13,31 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
+  useSidebar, // <-- مهم
 } from "@/components/ui/sidebar";
-import Link from "next/link";
 
-// Menu items.
 const items = [
-  {
-    title: "Home",
-    url: "/Home",
-    icon: Home,
-  },
-  {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
-  },
-  {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "/Settings",
-    icon: Settings,
-  },
+  { title: "Home", url: "/Home", icon: Home },
+  { title: "Inbox", url: "#", icon: Inbox },
+  { title: "Calendar", url: "#", icon: Calendar },
+  { title: "Search", url: "#", icon: Search },
+  { title: "Settings", url: "/Settings", icon: Settings },
 ];
 
 export function AppSidebar() {
+  const { open } = useSidebar();
+
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon" className="!bg-[#F9F9FA] !border-0 !outline-0">
+      <div
+        className={`flex w-full ${
+          open ? "justify-end pr-2" : "justify-center cursor-pointer"
+        }`}
+      >
+        <SidebarTrigger className="cursor-pointer"/>
+      </div>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarTrigger />
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -55,7 +45,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link href={item.url}>
-                      <item.icon />
+                      <item.icon className="h-5 w-5" />
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
