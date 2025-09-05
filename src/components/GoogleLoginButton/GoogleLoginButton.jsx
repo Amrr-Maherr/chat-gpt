@@ -39,7 +39,8 @@ export default function GoogleLoginButton() {
     );
       console.log("User Info:", JSON.parse(userInfo));
       if (userInfo) {
-        router.push("/dashboard");
+          localStorage.setItem("UserInfo", JSON.stringify(userInfo)) || [];
+          router.push("/dashboard");
       }
   };
 
