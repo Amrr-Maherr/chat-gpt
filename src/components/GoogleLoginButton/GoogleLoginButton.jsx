@@ -40,7 +40,7 @@ export default function GoogleLoginButton() {
       console.log("User Info:", JSON.parse(userInfo));
       if (userInfo) {
           localStorage.setItem("UserInfo", JSON.stringify(userInfo)) || [];
-          router.push("/dashboard");
+          router.push("/Home");
       }
   };
 
