@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-
+import { useRouter } from "next/navigation";
 export default function GoogleLoginButton() {
     const buttonDiv = useRef(null);
+    const router = useRouter();
     const id =
       "283062755565-snjllf1872smur7dc82chrsmmbativg8.apps.googleusercontent.com";
   useEffect(() => {
@@ -30,13 +31,16 @@ export default function GoogleLoginButton() {
 
     const base64Url = response.credential.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    const jsonPayload = decodeURIComponent(
+    const userInfo = decodeURIComponent(
       atob(base64)
         .split("")
         .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
         .join("")
     );
-      console.log("User Info:", JSON.parse(jsonPayload));
+      console.log("User Info:", JSON.parse(userInfo));
+      if (userInfo) {
+        router.push("/dashboard");
+      }
   };
 
   return <div ref={buttonDiv}></div>;
