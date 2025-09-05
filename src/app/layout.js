@@ -3,7 +3,7 @@ import Script from "next/script";
 import LayoutContent from "./LayoutContent";
 
 export const metadata = {
-  title: "chatGPT",
+  title: "ChatGPT",
   description:
     "A powerful AI assistant chatbot powered by advanced language models. Ask anything, anytime.",
   icons: { icon: "/icons/Vector.png" },
