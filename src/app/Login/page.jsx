@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
+import GoogleLoginButton from "@/components/GoogleLoginButton/GoogleLoginButton";
 
 export default function page() {
   const [email, setEmail] = useState("");
@@ -64,16 +65,7 @@ export default function page() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-col gap-2">
-            <Button variant="outline" className="w-full h-[65px] rounded-full">
-              <Image
-                width={18}
-                height={18}
-                quality={100}
-                src="/icons/google-logo-NePEveMl.svg"
-                alt="google-logo"
-              />
-              Continue with Google
-            </Button>
+            <GoogleLoginButton />
             <Button variant="outline" className="w-full h-[65px] rounded-full">
               <Image
                 width={18}
