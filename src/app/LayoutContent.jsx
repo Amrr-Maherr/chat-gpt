@@ -16,9 +16,7 @@ export default function LayoutContent({ children }) {
     <SidebarProvider>
       <div className="flex w-full">
         <AppSidebar />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1 bg-[#212121]">{children}</main>
       </div>
     </SidebarProvider>
   );

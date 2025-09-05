@@ -6,6 +6,7 @@ import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -28,22 +29,25 @@ export function AppSidebar() {
   const { open } = useSidebar();
 
   return (
-    <Sidebar collapsible="icon" className="!bg-[#F9F9FA] !border-0 !outline-0">
+    <Sidebar
+      collapsible="icon"
+      className="!bg-black !border-0 !outline-0 text-white hover:text-white"
+    >
       <div
-        className={`flex w-full ${
+        className={`flex w-full !bg-black text-white ${
           open ? "justify-end pr-2" : "justify-center cursor-pointer"
         }`}
       >
-        <SidebarTrigger className="cursor-pointer"/>
+        <SidebarTrigger className="cursor-pointer hover:bg-gray-300" />
       </div>
-      <SidebarContent>
+      <SidebarContent className="!bg-black">
         <SidebarGroup>
           <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="!bg-black">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton className="hover:bg-gray-300" asChild>
                     <Link href={item.url}>
                       <item.icon className="h-5 w-5" />
                       <span>{item.title}</span>
@@ -55,6 +59,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="!bg-black">
+        <h1>test</h1>
+      </SidebarFooter>
     </Sidebar>
   );
 }
