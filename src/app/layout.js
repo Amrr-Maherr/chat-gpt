@@ -1,14 +1,13 @@
 import "./globals.css";
 import Script from "next/script";
+import LayoutContent from "./LayoutContent";
+
 export const metadata = {
   title: "chatGPT",
   description:
     "A powerful AI assistant chatbot powered by advanced language models. Ask anything, anytime.",
-  icons: {
-    icon: "/icons/Vector.png",
-  },
+  icons: { icon: "/icons/Vector.png" },
 };
-
 
 export default function RootLayout({ children }) {
   return (
@@ -19,7 +18,9 @@ export default function RootLayout({ children }) {
           strategy="beforeInteractive"
         />
       </head>
-      <body className="antialiased font-segoe">{children}</body>
+      <body className="antialiased font-segoe">
+        <LayoutContent>{children}</LayoutContent>
+      </body>
     </html>
   );
 }
