@@ -17,6 +17,7 @@ export default function GoogleLoginButton() {
         theme: "outline",
         size: "large",
         shape: "pill",
+        width: "100%",
       });
 
       // Optional: Show One Tap
